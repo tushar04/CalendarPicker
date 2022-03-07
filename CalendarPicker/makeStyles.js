@@ -24,6 +24,7 @@ export function makeStyles(params) {
     selectedDayColor,
     selectedDayTextColor,
     todayBackgroundColor,
+    monthTitleStyle,
     dayShape,
   } = params;
   const scaler = Math.min(containerWidth, containerHeight) / scaleFactor;
@@ -43,7 +44,7 @@ export function makeStyles(params) {
 
     calendar: {
       height: 320 * scaler,
-      marginTop: 10 * scaler,
+      // marginTop: 10 * scaler,
     },
 
     dayButton: {
@@ -66,19 +67,24 @@ export function makeStyles(params) {
 
     dayLabelsWrapper: {
       flexDirection: "row",
-      borderBottomWidth: 1,
+      // borderBottomWidth: 1,
       borderTopWidth: 1,
-      paddingTop: 10 * scaler,
-      paddingBottom: 10 * scaler,
+      paddingTop: 32 * scaler,
+      paddingBottom: 24 * scaler,
       alignSelf: "center",
       justifyContent: "center",
       backgroundColor: "rgba(0,0,0,0.0)",
       borderColor: "rgba(0,0,0,0.2)",
+      paddingHorizontal: 10 * scaler,
     },
 
     daysWrapper: {
       alignSelf: "center",
       justifyContent: "center",
+      borderBottomWidth: 1,
+      borderColor: "rgba(0,0,0,0.2)",
+      paddingBottom: 16 * scaler,
+      paddingHorizontal: 10 * scaler,
     },
 
     dayLabels: {
@@ -153,9 +159,9 @@ export function makeStyles(params) {
       alignSelf: "center",
       justifyContent: "space-between",
       width: containerWidth,
-      padding: 5 * scaler,
-      paddingBottom: 3 * scaler,
-      marginBottom: 10 * scaler,
+      paddingHorizontal: 8 * scaler,
+      // paddingBottom: 3 * scaler,
+      marginBottom: 18 * scaler,
       backgroundColor: "rgba(0,0,0,0.0)",
     },
 
@@ -233,11 +239,20 @@ export function makeStyles(params) {
       color: "#000",
       alignSelf: "center",
     },
+    currentMonthText: {
+      color: SELECTED_BG_COLOR,
+      fontFamily: monthTitleStyle?.fontFamily,
+      fontWeight: monthTitleStyle?.fontWeight,
+    },
 
     monthsWrapper: {
       alignSelf: "center",
       justifyContent: "center",
       width: containerWidth,
+      borderTopWidth: 1,
+      borderColor: "rgba(0,0,0,0.2)",
+      backgroundColor: 'red'
+
     },
 
     monthsRow: {
@@ -278,6 +293,11 @@ export function makeStyles(params) {
     yearsRow: {
       flexDirection: "row",
       padding: 20 * scaler,
+    },
+    currentYearText: {
+      color: SELECTED_BG_COLOR, 
+      fontFamily: monthTitleStyle?.fontFamily,
+      fontWeight: monthTitleStyle?.fontWeight,
     },
   };
 }

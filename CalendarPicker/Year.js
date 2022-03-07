@@ -54,7 +54,7 @@ export default function Year(props) {
       { !yearOutOfRange ?
         <TouchableOpacity
           onPress={onSelect}>
-          <Text style={[styles.yearText, textStyle]}>
+          <Text style={[styles.yearText, textStyle, year === currentYear && styles.currentYearText]}>
             { year }
           </Text>
         </TouchableOpacity>

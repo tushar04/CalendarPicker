@@ -7,6 +7,7 @@ import Month from './Month';
 export default function MonthsGridView(props) {
   const {
     currentYear,
+    currentMonth: selectedMonth,
     months,
     styles,
     onSelectMonth,
@@ -25,6 +26,7 @@ export default function MonthsGridView(props) {
         <Month
           key={currentMonth + index}
           currentMonth={currentMonth}
+          selectedMonth={selectedMonth}
           currentYear={currentYear}
           months={months}
           styles={styles}
@@ -53,6 +55,7 @@ export default function MonthsGridView(props) {
 MonthsGridView.propTypes = {
   styles: PropTypes.shape(),
   currentYear: PropTypes.number.isRequired,
+  currentMonth: PropTypes.number.isRequired,
   months: PropTypes.array,
   onSelectMonth: PropTypes.func,
 };

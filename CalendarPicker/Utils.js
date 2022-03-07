@@ -13,6 +13,10 @@ export const Utils = {
     'January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'
   ],
+  MONTHS_SHORT: [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+    'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+  ],
   MAX_ROWS: 7,
   MAX_COLUMNS: 7,
   FIRST_DAY_OFFSETS: [0, -1, 5, 4, 3, 2, 1],

@@ -137,7 +137,8 @@ export default class CalendarPicker extends Component {
       todayBackgroundColor,
       width,
       height,
-      dayShape
+      dayShape,
+      monthTitleStyle
     } = props;
 
     // The styles in makeStyles are intially scaled to this width
@@ -151,6 +152,7 @@ export default class CalendarPicker extends Component {
         selectedDayColor,
         selectedDayTextColor,
         todayBackgroundColor,
+        monthTitleStyle,
         dayShape
       })
     };
@@ -495,6 +497,7 @@ export default class CalendarPicker extends Component {
           textStyle={textStyle}
           title={selectMonthTitle}
           currentYear={currentYear}
+          currentMonth={currentMonth}
           months={months}
           minDate={minDate}
           maxDate={maxDate}
@@ -508,7 +511,7 @@ export default class CalendarPicker extends Component {
         <YearSelector
           styles={styles}
           textStyle={textStyle}
-          title={selectYearTitle}
+          title={`${currentYear}`}
           initialDate={moment(initialDate)}
           currentMonth={currentMonth}
           currentYear={currentYear}

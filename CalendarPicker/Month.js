@@ -12,6 +12,7 @@ export default function Month(props) {
     months,
     currentMonth: month,
     currentYear: year,
+    selectedMonth: selectedMonth,
     styles,
     onSelectMonth,
     textStyle,
@@ -19,7 +20,7 @@ export default function Month(props) {
     maxDate,
   } = props;
 
-  const MONTHS = months || Utils.MONTHS; // English Month Array
+  const MONTHS = months || Utils.MONTHS_SHORT; // English Month Array
   const monthName = MONTHS[month];
 
   let monthOutOfRange;
@@ -55,7 +56,7 @@ export default function Month(props) {
       { !monthOutOfRange ?
         <TouchableOpacity
           onPress={onSelect}>
-          <Text style={[styles.monthText, textStyle]}>
+          <Text style={[styles.monthText,  textStyle, month === selectedMonth && styles.currentMonthText]}>
             { monthName }
           </Text>
         </TouchableOpacity>
@@ -72,5 +73,6 @@ Month.propTypes = {
   styles: PropTypes.shape({}),
   currentMonth: PropTypes.number,
   currentYear: PropTypes.number,
+  selectedMonth: PropTypes.number,
   onSelectMonth: PropTypes.func,
 };

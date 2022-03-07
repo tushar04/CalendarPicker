@@ -10,6 +10,7 @@ export default class MonthSelector extends Component {
     super(props);
     this.state = {
       currentYear: props.currentYear,
+      currentMonth: props.currentMonth,
     };
   }
 
@@ -20,6 +21,7 @@ export default class MonthSelector extends Component {
       title,
       headingLevel,
       currentYear,
+      currentMonth,
       months,
       minDate,
       maxDate,
@@ -38,6 +40,7 @@ export default class MonthSelector extends Component {
           styles={styles}
           textStyle={textStyle}
           currentYear={currentYear}
+          currentMonth={currentMonth}
           months={months}
           minDate={minDate}
           maxDate={maxDate}
