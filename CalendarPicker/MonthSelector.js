@@ -19,13 +19,22 @@ export default class MonthSelector extends Component {
       styles,
       textStyle,
       title,
-      headingLevel,
       currentYear,
       currentMonth,
       months,
       minDate,
       maxDate,
-      onSelectMonth,
+      headingLevel,
+      restrictNavigation,
+      previousComponent,
+      nextComponent,
+      previousTitle,
+      nextTitle,
+      previousTitleStyle,
+      nextTitleStyle,
+      handleOnPressPreviousYear,
+      handleOnPressNextYear,
+      onSelectMonth
     } = this.props;
 
     return (
@@ -33,8 +42,22 @@ export default class MonthSelector extends Component {
         <MonthsHeader
           styles={styles}
           textStyle={textStyle}
-          title={title + currentYear}
+          title={title}
           headingLevel={headingLevel}
+          minDate={minDate}
+          maxDate={maxDate}
+          restrictNavigation={restrictNavigation}
+          currentYear={this.state.currentYear}
+          currentMonth={this.state.currentMonth}
+          previousComponent={previousComponent}
+          nextComponent={nextComponent}
+          previousTitle={previousTitle}
+          nextTitle={nextTitle}
+          previousTitleStyle={previousTitleStyle}
+          nextTitleStyle={nextTitleStyle}
+          handleOnPressPreviousYear={handleOnPressPreviousYear}
+          handleOnPressNextYear={handleOnPressNextYear}
+          onSelectMonth={onSelectMonth}
         />
         <MonthsGridView
           styles={styles}

@@ -316,6 +316,22 @@ export default class CalendarPicker extends Component {
     this.handleOnPressFinisher({year, month: nextMonth, scrollFinisher});
   }
 
+  handleOnPressPreviousYear = () => {
+    const { currentYear, currentMonth } = this.state;
+    let year = currentYear;
+    year--;
+    const scrollFinisher = this.props.scrollable && this.scroller.scrollLeft;
+    this.handleOnPressFinisher({year, month: currentMonth, scrollFinisher});
+  }
+
+  handleOnPressNextYear = () => {
+    const { currentYear, currentMonth } = this.state;
+    let year = currentYear;
+    year++;
+    const scrollFinisher = this.props.scrollable && this.scroller.scrollRight;
+    this.handleOnPressFinisher({year, month: currentMonth, scrollFinisher});
+  }
+
   handleOnPressFinisher = ({year, month, scrollFinisher, extraState}) => {
     if (scrollFinisher) {
       scrollFinisher();
@@ -497,14 +513,24 @@ export default class CalendarPicker extends Component {
         <MonthSelector
           styles={styles}
           textStyle={textStyle}
-          title={selectMonthTitle}
+          title={`${currentYear}`}
           currentYear={currentYear}
           currentMonth={currentMonth}
           months={months}
           minDate={minDate}
           maxDate={maxDate}
-          onSelectMonth={this.handleOnSelectMonthYear}
           headingLevel={headingLevel}
+          restrictNavigation={restrictMonthNavigation}
+          previousComponent={previousComponent}
+          nextComponent={nextComponent}
+          previousTitle={previousTitle}
+          nextTitle={nextTitle}
+          previousTitleStyle={previousTitleStyle}
+          nextTitleStyle={nextTitleStyle}
+          handleOnPressPreviousYear={this.handleOnPressPreviousYear}
+          handleOnPressNextYear={this.handleOnPressNextYear}
+          onSelectMonth={this.onSelectMonth}
+          onSelectMonth={this.handleOnSelectMonthYear}
         />
       );
       break;
