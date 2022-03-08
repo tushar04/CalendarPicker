@@ -46,7 +46,7 @@ export default function YearsHeader(props) {
         styles={styles.previousContainer}
         textStyles={[styles.navButtonText, textStyle, previousTitleStyle]}
       />
-      <Text style={[styles.yearsHeaderText, textStyle]} {...accessibilityProps}>
+      <Text style={[styles.yearsHeaderText, {color: textStyle?.color}]} {...accessibilityProps}>
         { title }
       </Text>
       <Controls

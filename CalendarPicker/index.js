@@ -138,7 +138,8 @@ export default class CalendarPicker extends Component {
       width,
       height,
       dayShape,
-      monthTitleStyle
+      monthTitleStyle,
+      dayLabelsWrapper
     } = props;
 
     // The styles in makeStyles are intially scaled to this width
@@ -153,6 +154,7 @@ export default class CalendarPicker extends Component {
         selectedDayTextColor,
         todayBackgroundColor,
         monthTitleStyle,
+        dayLabelsWrapper,
         dayShape
       })
     };

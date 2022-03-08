@@ -26,6 +26,7 @@ export function makeStyles(params) {
     todayBackgroundColor,
     monthTitleStyle,
     dayShape,
+    dayLabelsWrapper
   } = params;
   const scaler = Math.min(containerWidth, containerHeight) / scaleFactor;
   const SELECTED_BG_COLOR = selectedDayColor
@@ -37,6 +38,7 @@ export function makeStyles(params) {
   const TODAY_BG_COLOR = todayBackgroundColor
     ? todayBackgroundColor
     : DEFAULT_TODAY_BACKGROUND_COLOR;
+  const BORDER_COLOR = dayLabelsWrapper?.borderColor ?? "rgba(0,0,0,0.2)";
 
   return {
     containerWidth,
@@ -74,7 +76,7 @@ export function makeStyles(params) {
       alignSelf: "center",
       justifyContent: "center",
       backgroundColor: "rgba(0,0,0,0.0)",
-      borderColor: "rgba(0,0,0,0.2)",
+      borderColor: BORDER_COLOR,
       paddingHorizontal: 10 * scaler,
     },
 
@@ -82,7 +84,7 @@ export function makeStyles(params) {
       alignSelf: "center",
       justifyContent: "center",
       borderBottomWidth: 1,
-      borderColor: "rgba(0,0,0,0.2)",
+      borderColor: BORDER_COLOR,
       paddingBottom: 16 * scaler,
       paddingHorizontal: 10 * scaler,
     },
@@ -227,6 +229,7 @@ export function makeStyles(params) {
       fontSize: 16 * scaler,
       color: "#000",
       textAlign: "center",
+      ...monthTitleStyle,
     },
 
     monthContainer: {
@@ -239,6 +242,7 @@ export function makeStyles(params) {
       color: "#000",
       alignSelf: "center",
     },
+
     currentMonthText: {
       color: SELECTED_BG_COLOR,
       fontFamily: monthTitleStyle?.fontFamily,
@@ -246,13 +250,11 @@ export function makeStyles(params) {
     },
 
     monthsWrapper: {
-      alignSelf: "center",
+      alignItems: "center",
       justifyContent: "center",
-      width: containerWidth,
       borderTopWidth: 1,
-      borderColor: "rgba(0,0,0,0.2)",
-      backgroundColor: 'red'
-
+      borderColor: BORDER_COLOR,
+       paddingTop: 20 * scaler
     },
 
     monthsRow: {
@@ -282,12 +284,15 @@ export function makeStyles(params) {
       color: "#000",
       width: 180 * scaler,
       textAlign: "center",
+      ...monthTitleStyle,
     },
 
     yearsWrapper: {
-      alignSelf: "center",
+      alignItems: "center",
       justifyContent: "center",
-      width: containerWidth,
+      borderTopWidth: 1,
+      borderColor: BORDER_COLOR,
+      paddingTop: 20 * scaler
     },
 
     yearsRow: {
