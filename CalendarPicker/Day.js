@@ -133,7 +133,7 @@ export default function Day(props) {
       // todayTextStyle prop overrides selectedDayTextColor (created via makeStyles)
       selectedDayTextStyle = [
         todayTextStyle || styles.selectedDayLabel,
-        propSelectedDayTextStyle,
+        selectedStartDate && isThisDaySameAsSelectedStart && propSelectedDayTextStyle,
       ];
     }
 
