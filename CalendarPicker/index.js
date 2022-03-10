@@ -349,18 +349,27 @@ export default class CalendarPicker extends Component {
   }
 
   handleOnPressYear = () => {
+    const { getCurrentView } = this.props;
     this.setState({
       currentView: 'years'
     });
+    if ("function" === typeof getCurrentView) {
+      getCurrentView('years')
+    }
   }
 
   handleOnPressMonth = () => {
+    const { getCurrentView } = this.props;
     this.setState({
       currentView: 'months'
     });
+    if ("function" === typeof getCurrentView) {
+      getCurrentView('months')
+    }
   }
 
   handleOnSelectMonthYear = ({month, year}) => {
+    const { getCurrentView } = this.props;
     const currentYear = year;
     const currentMonth = month;
     const scrollableState = this.props.scrollable ? {
@@ -373,6 +382,9 @@ export default class CalendarPicker extends Component {
       ...scrollableState,
     };
 
+    if ("function" === typeof getCurrentView) {
+      getCurrentView('days')
+    }
     this.handleOnPressFinisher({month, year, extraState});
   }
 
