@@ -13,6 +13,7 @@ export default class CalendarPicker extends React.Component<CalendarPickerProps>
   handleOnPressNext(): void;
   handleOnPressPrevious(): void;
   resetSelections(): void;
+  handleOnPressMonth(): void;
 }
 
 export interface CalendarPickerProps {
